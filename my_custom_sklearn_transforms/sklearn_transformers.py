@@ -26,5 +26,6 @@ class ScaleColumns(BaseEstimator, TransformerMixin):
     def transform(self, X):
         data = X.copy()
         min_max_scaler = MinMaxScaler()
-        data[self.columns] = min_max_scaler.fit_transform(data[self.columns])
+        for i in range(3):
+            data[self.columns] = min_max_scaler.fit_transform(data[self.columns])
         return data
