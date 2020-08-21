@@ -33,7 +33,7 @@ class ZeroColumns(BaseEstimator, TransformerMixin):
                     data.at[i, self.columns[j]] = 0
         return data
 
-#Normalizo los datos de Horas y Numero de cursos completados
+#Estandarizo las notas promedio de los estudiantes.
 class ScaleColumns(BaseEstimator, TransformerMixin):
     def __init__(self, columns):
         self.columns = columns
