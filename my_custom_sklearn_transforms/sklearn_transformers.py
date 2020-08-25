@@ -1,5 +1,6 @@
 from sklearn.base import BaseEstimator, TransformerMixin
 from sklearn.preprocessing import MinMaxScaler
+from impyute.imputation.cs import mice
 
 # All sklearn Transforms must have the `transform` and `fit` methods
 class DropColumns(BaseEstimator, TransformerMixin):
@@ -29,3 +30,18 @@ class ScaleColumns(BaseEstimator, TransformerMixin):
         for i in range(3):
             data[self.columns] = min_max_scaler.fit_transform(data[self.columns])
         return data
+
+ from sklearn.base import BaseEstimator, TransformerMixin
+from impyute.imputation.cs import mice
+
+class MiceImputation(BaseEstimator, TransformerMixin):
+    def __init__(self, columns):
+        self.columns = columns
+
+    def fit(self, X, y=None):
+        return self
+    
+    def transform(self, X):
+        data = X.copy()
+        data = mice(data)
+        return data   
