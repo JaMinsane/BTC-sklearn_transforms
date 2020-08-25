@@ -31,9 +31,6 @@ class ScaleColumns(BaseEstimator, TransformerMixin):
             data[self.columns] = min_max_scaler.fit_transform(data[self.columns])
         return data
 
- from sklearn.base import BaseEstimator, TransformerMixin
-from impyute.imputation.cs import mice
-
 class MiceImputation(BaseEstimator, TransformerMixin):
     def __init__(self, columns):
         self.columns = columns
