@@ -1,3 +1,4 @@
+import pandas as pd
 from sklearn.base import BaseEstimator, TransformerMixin
 from sklearn.preprocessing import MinMaxScaler
 from impyute.imputation.cs import mice
