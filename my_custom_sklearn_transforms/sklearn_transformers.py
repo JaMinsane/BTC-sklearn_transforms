@@ -1,4 +1,4 @@
-import pandas as pd
+from pandas import concat, DataFrame
 from sklearn.base import BaseEstimator, TransformerMixin
 from sklearn.preprocessing import MinMaxScaler
 from impyute.imputation.cs import mice
@@ -59,15 +59,15 @@ class UnderOverSampling(BaseEstimator, TransformerMixin):
         
         #Random under-sampling
         df_class_acep_under = df_class_acep.sample(count_class_sosp*3)
-        df_test_under = pd.concat([df_class_acep_under, df_class_sosp], axis=0)
+        df_test_under = concat([df_class_acep_under, df_class_sosp], axis=0)
         
         #Random over-sampling
         df_class_sosp_over = df_class_sosp.sample(count_class_sosp*3, replace=True)
-        df_test_over = pd.concat([df_class_acep, df_class_sosp_over], axis=0)
+        df_test_over = concat([df_class_acep, df_class_sosp_over], axis=0)
         
-        df_acep = pd.DataFrame(df_test_under[df_test_under['OBJETIVO'] == 'Aceptado'])
-        df_sosp = pd.DataFrame(df_test_over[df_test_over['OBJETIVO'] == 'Sospechoso'])
+        df_acep = DataFrame(df_test_under[df_test_under['OBJETIVO'] == 'Aceptado'])
+        df_sosp = DataFrame(df_test_over[df_test_over['OBJETIVO'] == 'Sospechoso'])
 
         frames = [df_acep, df_sosp]
-        df_result = pd.concat(frames)
+        df_result = concat(frames)
         return df_result
