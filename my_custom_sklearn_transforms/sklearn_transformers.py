@@ -1,17 +1,4 @@
-import json
-import requests
 import pandas as pd
-import numpy as np
-from scipy import stats
-from datetime import datetime
-from sklearn import preprocessing
-from sklearn.model_selection import KFold
-from sklearn.impute import SimpleImputer
-from sklearn.model_selection import train_test_split
-from sklearn.pipeline import Pipeline
-import matplotlib.pyplot as plt
-import seaborn as sns
-
 from sklearn.base import BaseEstimator, TransformerMixin
 from sklearn.preprocessing import MinMaxScaler
 from impyute.imputation.cs import mice
@@ -78,12 +65,8 @@ class UnderOverSampling(BaseEstimator, TransformerMixin):
         df_class_sosp_over = df_class_sosp.sample(count_class_sosp*3, replace=True)
         df_test_over = pd.concat([df_class_acep, df_class_sosp_over], axis=0)
         
-        df_acep = pd.DataFrame(
-        df_test_under[df_test_under['OBJETIVO'] == 'Aceptado']
-        )
-        df_sosp = pd.DataFrame(
-        df_test_over[df_test_over['OBJETIVO'] == 'Sospechoso']
-        )
+        df_acep = pd.DataFrame(df_test_under[df_test_under['OBJETIVO'] == 'Aceptado'])
+        df_sosp = pd.DataFrame(df_test_over[df_test_over['OBJETIVO'] == 'Sospechoso'])
 
         frames = [df_acep, df_sosp]
         df_result = pd.concat(frames)
