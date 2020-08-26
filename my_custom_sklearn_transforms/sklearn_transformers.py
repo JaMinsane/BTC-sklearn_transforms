@@ -43,7 +43,7 @@ class MiceImputation(BaseEstimator, TransformerMixin):
         data = mice(data)
         return data   
     
- class UnderOverSampling(BaseEstimator, TransformerMixin):
+class UnderOverSampling(BaseEstimator, TransformerMixin):
     def __init__(self, columns):
         self.columns = columns
 
