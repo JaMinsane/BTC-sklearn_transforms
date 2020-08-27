@@ -1,5 +1,4 @@
 from setuptools import setup
-from impyute.imputation.cs import mice
 
 setup(
       name='my_custom_sklearn_transforms',
