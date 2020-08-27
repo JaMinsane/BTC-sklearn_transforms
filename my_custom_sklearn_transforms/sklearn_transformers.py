@@ -18,7 +18,7 @@ class DropColumns(BaseEstimator, TransformerMixin):
         return data.drop(labels=self.columns, axis='columns')
     
 #Estandarizo las notas promedio de los estudiantes.
-class ScaleColumns(BaseEstimator, TransformerMixin, MinMaxScaler):
+class ScaleColumns(BaseEstimator, TransformerMixin):
     def __init__(self, columns):
         self.columns = columns
 
