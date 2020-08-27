@@ -13,8 +13,7 @@ setup(
       author_email='james.jh03@gmail.com',
       license='BSD',
       packages=[
-            'my_custom_sklearn_transforms',
-            'mice'
+            'my_custom_sklearn_transforms'
       ],
       zip_safe=False
 )
