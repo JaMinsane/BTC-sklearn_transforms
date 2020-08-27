@@ -18,7 +18,7 @@ class DropColumns(BaseEstimator, TransformerMixin):
         return data.drop(labels=self.columns, axis='columns')
     
 #Estandarizo las notas promedio de los estudiantes.
-class ScaleColumns(BaseEstimator, TransformerMixin):
+class ScaleColumns(BaseEstimator, TransformerMixin, MinMaxScaler):
     def __init__(self, columns):
         self.columns = columns
 
@@ -32,7 +32,7 @@ class ScaleColumns(BaseEstimator, TransformerMixin):
             data[self.columns] = min_max_scaler.fit_transform(data[self.columns])
         return data
 
-class MiceImputation(BaseEstimator, TransformerMixin):
+class MiceImputation(BaseEstimator, TransformerMixin, mice):
     def __init__(self, columns):
         self.columns = columns
 
@@ -44,7 +44,7 @@ class MiceImputation(BaseEstimator, TransformerMixin):
         data = mice(data)
         return data   
     
-class UnderOverSampling(BaseEstimator, TransformerMixin):
+class UnderOverSampling(BaseEstimator, TransformerMixin, pd):
     def __init__(self, columns):
         self.columns = columns
 
