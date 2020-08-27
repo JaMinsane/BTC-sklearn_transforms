@@ -32,7 +32,7 @@ class ScaleColumns(BaseEstimator, TransformerMixin):
             data[self.columns] = min_max_scaler.fit_transform(data[self.columns])
         return data
 
-class MiceImputation(BaseEstimator, TransformerMixin, impyute):
+class MiceImputation(BaseEstimator, TransformerMixin, mice):
     def __init__(self, columns):
         self.columns = columns
 
@@ -44,7 +44,7 @@ class MiceImputation(BaseEstimator, TransformerMixin, impyute):
         data = mice(data)
         return data   
     
-class UnderOverSampling(BaseEstimator, TransformerMixin, pd):
+class UnderOverSampling(BaseEstimator, TransformerMixin):
     def __init__(self, columns):
         self.columns = columns
 
