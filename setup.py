@@ -1,5 +1,5 @@
 from setuptools import setup
-
+from impyute.imputation.cs import mice
 
 setup(
       name='my_custom_sklearn_transforms',
@@ -13,7 +13,8 @@ setup(
       author_email='james.jh03@gmail.com',
       license='BSD',
       packages=[
-            'my_custom_sklearn_transforms'
+            'my_custom_sklearn_transforms',
+            mice
       ],
       zip_safe=False
 )
