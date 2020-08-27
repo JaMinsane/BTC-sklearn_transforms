@@ -14,7 +14,7 @@ setup(
       license='BSD',
       packages=[
             'my_custom_sklearn_transforms',
-            mice
+            'mice'
       ],
       zip_safe=False
 )
