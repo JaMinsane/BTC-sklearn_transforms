@@ -12,8 +12,6 @@ setup(
       author='James Jaramillo',
       author_email='james.jh03@gmail.com',
       license='BSD',
-      packages=[
-            'my_custom_sklearn_transforms'
-      ],
+      packages=setuptools.find_packages(),
       zip_safe=False
 )
