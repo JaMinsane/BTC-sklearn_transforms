@@ -9,6 +9,9 @@ class MiceImputation(BaseEstimator, TransformerMixin):
         return self
     
     def transform(self, X):
-        data = X.copy()
-        data = mice(data)
+        try:
+            data = X.copy()
+            data = mice(data)
+        except:
+            data = X.copy()
         return data   
