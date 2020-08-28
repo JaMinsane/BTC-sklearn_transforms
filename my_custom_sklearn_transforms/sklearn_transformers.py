@@ -1,6 +1,6 @@
-import pandas as pd
 from sklearn.base import BaseEstimator, TransformerMixin
 from impyute.imputation.cs import mice
+#import pandas as pd
 
 # All sklearn Transforms must have the `transform` and `fit` methods
 class DropColumns(BaseEstimator, TransformerMixin):
