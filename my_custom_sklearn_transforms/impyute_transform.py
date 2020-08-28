@@ -1,4 +1,5 @@
 from impyute.imputation.cs import mice
+from sklearn.base import BaseEstimator, TransformerMixin
 
 class MiceImputation(BaseEstimator, TransformerMixin):
     def __init__(self, columns):
