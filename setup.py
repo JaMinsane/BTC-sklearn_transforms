@@ -14,5 +14,8 @@ setup(
       packages=[
             'my_custom_sklearn_transforms'
       ],
+      install_requires=[
+         'impyute==0.0.8'
+      ],
       zip_safe=False
 )
