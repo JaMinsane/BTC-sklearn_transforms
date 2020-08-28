@@ -1,5 +1,5 @@
-from sklearn.base import BaseEstimator, TransformerMixin
 import pandas as pd
+from sklearn.base import BaseEstimator, TransformerMixin
 from impyute.imputation.cs import mice
 
 # All sklearn Transforms must have the `transform` and `fit` methods
