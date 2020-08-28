@@ -1,3 +1,5 @@
+import numpy
+import scipy
 from impyute.imputation.cs import mice
 from sklearn.base import BaseEstimator, TransformerMixin
 
